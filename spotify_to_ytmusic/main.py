@@ -48,11 +48,6 @@ def get_args(args=None):
     )
     create_parser.set_defaults(func=controllers.create)
 
-    liked_parser = subparsers.add_parser(
-        "liked", help="Transfer all liked songs of the user.", parents=[spotify_playlist_create]
-    )
-    liked_parser.set_defaults(func=controllers.liked)
-
     update_parser = subparsers.add_parser(
         "update",
         help="Delete all entries in the provided Google Play Music playlist and update the playlist with entries from the Spotify playlist.",
@@ -71,12 +66,6 @@ def get_args(args=None):
     )
     remove_parser.set_defaults(func=controllers.remove)
     remove_parser.add_argument("pattern", help="regex pattern")
-
-    all_parser = subparsers.add_parser(
-        "all", help="Transfer all public playlists of the specified user (Spotify User ID)."
-    )
-    all_parser.add_argument("user", type=str, help="Spotify userid of the specified user.")
-    all_parser.set_defaults(func=controllers.all)
 
     return parser.parse_args(args)
 
