@@ -15,6 +15,8 @@ class CSV:
 
         return {
             "tracks": tracks,
+            "name": file_path,
+            "description": "",
         }
 
 
